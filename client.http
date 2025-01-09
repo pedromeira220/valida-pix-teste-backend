@@ -6,3 +6,14 @@ Content-Type: application/json
   "cpf": "12345678911",
   "password": "123"
 }
+
+###
+
+POST http://localhost:3333/clients/pix
+Content-Type: application/json
+
+{
+  "value": 10,
+  "senderKey": "12345678911",
+  "customerId": "643fab79-eebc-4303-8277-43d181db6046"
+}

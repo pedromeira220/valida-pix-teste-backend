@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
-    "prisma:migrate:dev": "PG_DB_HOST=\"localhost\" npx prisma migrate dev"
+    "prisma:migrate:dev": "PG_DB_HOST=\"localhost\" npx prisma migrate dev",
+    "prisma:studio": "PG_DB_HOST=\"localhost\" npx prisma studio"
   },
   "keywords": [],
   "author": "",

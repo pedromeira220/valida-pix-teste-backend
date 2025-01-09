@@ -34,7 +34,7 @@ export class Customer extends Entity<CustomerProps> {
     const customer = new Customer({
       ...props,
       createdAt: props.createdAt ?? new Date()
-    })
+    }, id)
 
     return customer
   }

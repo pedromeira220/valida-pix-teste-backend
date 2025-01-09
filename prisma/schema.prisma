@@ -15,11 +15,24 @@ datasource db {
 }
 
 model Customer {
-  id           String   @id
-  name         String
-  cpf          String
-  passwordHash String   @map("password_hash")
-  createdAt    DateTime @default(now())
+  id             String           @id
+  name           String
+  cpf            String
+  passwordHash   String           @map("password_hash")
+  createdAt      DateTime         @default(now())
+  PixTransaction PixTransaction[]
 
   @@map("customers")
+}
+
+model PixTransaction {
+  id           String   @id
+  senderKey    String
+  valueInCents Int      @map("value_in_cents")
+  customerId   String   @map("customer_id")
+  date         DateTime
+
+  customer Customer @relation(fields: [customerId], references: [id])
+
+  @@map("pix_transactions")
 }
