@@ -1,0 +1,8 @@
+POST http://localhost:3333/clients
+Content-Type: application/json
+
+{
+  "name": "Cliente Teste", 
+  "cpf": "12345678911",
+  "password": "123"
+}
