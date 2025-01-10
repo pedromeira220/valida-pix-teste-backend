@@ -22,4 +22,14 @@ export class PixTransactionMapper {
       valueInCents: pixTransaction.valueInCents
     }
   }
+
+  static fromPrismaToHttp(pixTransaction: PrismaPixTransaction) {
+    return {
+      customerId: pixTransaction.customerId,
+      date: pixTransaction.date,
+      id: pixTransaction.id,
+      senderKey: pixTransaction.senderKey,
+      valueInCents: pixTransaction.valueInCents
+    }
+  }
 }

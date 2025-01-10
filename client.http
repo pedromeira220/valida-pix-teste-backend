@@ -17,3 +17,7 @@ Content-Type: application/json
   "senderKey": "12345678911",
   "customerId": "643fab79-eebc-4303-8277-43d181db6046"
 }
+
+###
+
+GET http://localhost:3333/clients/pix?customerId=643fab79-eebc-4303-8277-43d181db6046
