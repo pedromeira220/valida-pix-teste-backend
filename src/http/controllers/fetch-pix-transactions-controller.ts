@@ -1,16 +1,10 @@
-import { PixTransaction } from './../../entities/pix-transaction';
 import { Request, Response } from "express";
-import { z } from "zod"
 import { prisma } from "../../database/prisma";
-import { UniqueEntityID } from '../../entities/unique-entity-id';
 import { PixTransactionMapper } from '../../mappers/pix-transaction-mapper';
-
-const fetchPixTransactionsQuerySchema = z.object({
-  customerId: z.string().uuid() // Temporário até implementar sistema de auth
-})
+import { getCustomerIdFromJWT } from '../../utils/get-customer-id-from-jwt';
 
 export const fetchPixTransactionsController = async (req: Request, res: Response) => {
-  const { customerId } = fetchPixTransactionsQuerySchema.parse(req.query)
+  const { customerId } = getCustomerIdFromJWT(req)
 
     const pixTransactionList = await prisma.pixTransaction.findMany({
       where: {

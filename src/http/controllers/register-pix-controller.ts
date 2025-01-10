@@ -8,15 +8,17 @@ import { CustomerMapper } from "../../mappers/customer-mapper";
 import { BadRequestError } from "../../errors/api-error";
 import { UniqueEntityID } from '../../entities/unique-entity-id';
 import { PixTransactionMapper } from '../../mappers/pix-transaction-mapper';
+import { getCustomerIdFromJWT } from '../../utils/get-customer-id-from-jwt';
 
 const registerPixBodySchema = z.object({
   value: z.number(),
-  senderKey: z.string().min(1, "Campo obrigatório"),
-  customerId: z.string() // Temporário até implementar o sistema de autenticação
+  senderKey: z.string().min(1, "Campo obrigatório")
 })
 
 export const registerPixController = async (req: Request, res: Response) => {
-  const { value,senderKey,customerId } = registerPixBodySchema.parse(req.body)
+  const { value,senderKey } = registerPixBodySchema.parse(req.body)
+
+  const { customerId } = getCustomerIdFromJWT(req)
 
     const pixTransaction = PixTransaction.create({
       customerId: new UniqueEntityID(customerId),

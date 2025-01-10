@@ -38,3 +38,9 @@ export class ForbiddenError extends ApiError {
     super(message, 403)
   }
 }
+
+export class InternalServerError extends ApiError {
+  constructor(message: string) {
+    super(message, 500)
+  }
+}

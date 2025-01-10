@@ -1,3 +1,5 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2ZhYjc5LWVlYmMtNDMwMy04Mjc3LTQzZDE4MWRiNjA0NiIsImlhdCI6MTczNjQ2OTIwNiwiZXhwIjoxNzM2NDcyODA2fQ.hoMjFGivFfHJ4ZlouUcjIAVqpPXdhhwLMP0MEdwlLzA
+
 POST http://localhost:3333/clients
 Content-Type: application/json
 
@@ -11,6 +13,7 @@ Content-Type: application/json
 
 POST http://localhost:3333/clients/pix
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
   "value": 10,
@@ -20,4 +23,15 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3333/clients/pix?customerId=643fab79-eebc-4303-8277-43d181db6046
+GET http://localhost:3333/clients/pix
+Authorization: Bearer {{token}}
+
+###
+
+POST http://localhost:3333/clients/auth
+Content-Type: application/json
+
+{
+  "cpf": "12345678911",
+  "password": "123"
+}
