@@ -2,9 +2,9 @@
 
 ## Tecnologias Utilizadas
 
--   **Docker**: Containerização do ambiente de desenvolvimento e produção.
+-   **Docker**: Containerização do ambiente de desenvolvimento.
 -   **Docker Compose**: Facilita a execução dos containers em conjunto.
--   **PostgreSQL**: Banco de dados relacional.
+-   **PostgreSQL**: Banco de dados.
 -   **Prisma ORM**: ORM para interação com o banco de dados.
 -   **Express**: Framework para a criação da API.
 -   **Zod**: Biblioteca para validação de dados.
